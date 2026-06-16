@@ -9,8 +9,7 @@ statsmodels
 scikit-learn
 pyarrow
 missingno
-notebook
 openmeteo-requests
-openmeteo_requests
 streamlit
-xgboostshap
+xgboost
+shap
