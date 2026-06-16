@@ -1,0 +1,16 @@
+duckdb
+requests
+pandas
+numpy
+matplotlib
+seaborn
+scipy
+statsmodels
+scikit-learn
+pyarrow
+missingno
+notebook
+openmeteo-requests
+openmeteo_requests
+streamlit
+xgboostshap
