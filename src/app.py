@@ -386,22 +386,23 @@ section[data-testid="stSidebar"] > div:first-child {
 }
 .cnav-pill {
   display: inline-block; font-family: 'DM Sans', sans-serif;
-  font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.88);
-  background: rgba(255,255,255,0.13); border: 1.5px solid rgba(255,255,255,0.28);
-  border-radius: 50px; padding: 0.45rem 1.4rem;
-  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  font-size: 0.85rem; font-weight: 700; color: #0f172a;
+  background: rgba(255,255,255,0.82); border: 1.5px solid rgba(0,0,0,0.08);
+  border-radius: 14px; padding: 0.75rem 1.4rem;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   white-space: nowrap; text-decoration: none; cursor: pointer;
-  transition: all 0.18s ease; letter-spacing: 0.01em;
+  transition: all 0.15s ease; letter-spacing: 0.01em; min-height: 54px;
+  display: inline-flex; align-items: center; justify-content: center;
 }
 .cnav-pill:hover {
-  background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.55);
-  color: #fff; transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.3); text-decoration: none;
+  background: rgba(59,130,246,0.08); border-color: rgba(59,130,246,0.3);
+  color: #0f172a; transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(59,130,246,0.12); text-decoration: none;
 }
 .cnav-active {
-  background: linear-gradient(135deg,#3b82f6 0%,#1d4ed8 100%) !important;
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) !important;
   border-color: transparent !important; color: #fff !important;
-  font-weight: 700 !important; box-shadow: 0 4px 20px rgba(59,130,246,0.55) !important;
+  font-weight: 700 !important; box-shadow: 0 4px 18px rgba(59,130,246,0.4) !important;
   transform: translateY(-2px);
 }
 
@@ -553,7 +554,53 @@ section[data-testid="stSidebar"] > div:first-child {
 .rec-dsc { font-size:0.74rem; color:#64748b; margin-bottom:0.48rem; }
 .footer { padding:1rem 2.5rem 2rem; text-align:center; font-size:0.7rem; color:#cbd5e1; letter-spacing:0.04em; }
 
-/* ── CITY SELECTOR OVERLAY ── */
+/* ── CITY SELECTOR BUTTONS ── */
+/* Streamlit st.columns icindeki st.button-lari hedef alir */
+[data-testid="stHorizontalBlock"] [data-testid="stButton"] button {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  background: rgba(255,255,255,0.82) !important;
+  border: 1.5px solid rgba(0,0,0,0.08) !important;
+  border-radius: 14px !important;
+  padding: 0.75rem 1.4rem !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  letter-spacing: 0.01em !important;
+  box-shadow: none !important;
+  min-height: 54px !important;
+  width: 100% !important;
+}
+[data-testid="stHorizontalBlock"] [data-testid="stButton"] button:hover {
+  background: rgba(59,130,246,0.08) !important;
+  border-color: rgba(59,130,246,0.3) !important;
+  color: #0f172a !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 14px rgba(59,130,246,0.12) !important;
+}
+/* Secilmis seher - Streamlit primary button */
+[data-testid="stHorizontalBlock"] [data-testid="stButton"] button[kind="primary"],
+[data-testid="stHorizontalBlock"] [data-testid="stButton"] button[data-testid="baseButton-primary"],
+[data-testid="stHorizontalBlock"] [data-testid="stBaseButton-primary"] {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 18px rgba(59,130,246,0.4) !important;
+  transform: translateY(-2px) !important;
+}
+[data-testid="stHorizontalBlock"] [data-testid="stButton"] button[kind="primary"]:hover,
+[data-testid="stHorizontalBlock"] [data-testid="stBaseButton-primary"]:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+  box-shadow: 0 6px 22px rgba(59,130,246,0.5) !important;
+}
+/* Kohnə overlay class - geriye uygunlug ucun saxlanilir */
 .city-selector-overlay {
   position: absolute;
   top: 1.5rem;
@@ -565,42 +612,6 @@ section[data-testid="stSidebar"] > div:first-child {
   align-items: center;
   width: auto;
   justify-content: center;
-}
-.city-selector-overlay [data-testid="stHorizontalBlock"] {
-  width: auto !important;
-  flex-direction: row !important;
-}
-.city-selector-overlay button {
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 0.85rem !important;
-  font-weight: 600 !important;
-  color: rgba(255,255,255,0.88) !important;
-  background: rgba(255,255,255,0.13) !important;
-  border: 1.5px solid rgba(255,255,255,0.28) !important;
-  border-radius: 50px !important;
-  padding: 0.45rem 1.4rem !important;
-  backdrop-filter: blur(18px) !important;
-  -webkit-backdrop-filter: blur(18px) !important;
-  white-space: nowrap !important;
-  cursor: pointer !important;
-  transition: all 0.18s ease !important;
-  letter-spacing: 0.01em !important;
-  box-shadow: none !important;
-}
-.city-selector-overlay button:hover {
-  background: rgba(255,255,255,0.22) !important;
-  border-color: rgba(255,255,255,0.55) !important;
-  color: #fff !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.3) !important;
-}
-.city-selector-overlay button[aria-pressed="true"] {
-  background: linear-gradient(135deg,#3b82f6 0%,#1d4ed8 100%) !important;
-  border-color: transparent !important;
-  color: #fff !important;
-  font-weight: 700 !important;
-  box-shadow: 0 4px 20px rgba(59,130,246,0.55) !important;
-  transform: translateY(-2px) !important;
 }
 
 /* ── HORIZONTAL DATE PICKER ── */
@@ -720,7 +731,9 @@ col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
 cities_cols = [col1, col2, col3, col4]
 for idx, _c in enumerate(CITY_NAMES):
     with cities_cols[idx]:
-        if st.button(_c, key=f"city_btn_{_c}", use_container_width=True):
+        _is_active = (_c == st.session_state.city)
+        if st.button(_c, key=f"city_btn_{_c}", use_container_width=True,
+                     type="primary" if _is_active else "secondary"):
             st.session_state.city = _c
             st.session_state.sel_day = 1
             st.rerun()
