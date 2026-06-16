@@ -221,8 +221,6 @@ notebooks/day_09_shap_explainability.ipynb
 reports/figures/shap_feature_importance.csv
 reports/figures/shap_summary_bar.png
 reports/figures/shap_summary_beeswarm.png
-reports/figures/shap_dependence_*.png
-reports/figures/shap_model_metrics.json
 ```
 
 The SHAP analysis helps answer:
