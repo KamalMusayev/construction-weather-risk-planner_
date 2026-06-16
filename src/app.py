@@ -555,34 +555,57 @@ section[data-testid="stSidebar"] > div:first-child {
 .footer { padding:1rem 2.5rem 2rem; text-align:center; font-size:0.7rem; color:#cbd5e1; letter-spacing:0.04em; }
 
 /* ── CITY SELECTOR BUTTONS ── */
-/* Streamlit st.columns icindeki st.button-lari hedef alir */
+/* Streamlit st.columns icindeki butun setiri kompakt, merkezlesdirilmis qrup kimi sigistir */
+[data-testid="stHorizontalBlock"]:has([data-testid="stButton"]) {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+  width: fit-content !important;
+  max-width: 94% !important;
+  margin: 1.4rem auto 0 auto !important;
+}
+[data-testid="stHorizontalBlock"]:has([data-testid="stButton"]) [data-testid="column"] {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+/* Hər bir şəhər düyməsi: fit-content ölçü, glassmorphism, mükəmməl mərkəzləşdirmə */
 [data-testid="stHorizontalBlock"] [data-testid="stButton"] button {
   font-family: 'DM Sans', sans-serif !important;
   font-size: 0.85rem !important;
   font-weight: 700 !important;
-  color: #0f172a !important;
-  background: rgba(255,255,255,0.82) !important;
-  border: 1.5px solid rgba(0,0,0,0.08) !important;
+  color: #fff !important;
+  background: rgba(30,64,175,0.4) !important;
+  border: 1px solid rgba(255,255,255,0.28) !important;
   border-radius: 14px !important;
-  padding: 0.75rem 1.4rem !important;
+  padding: 0.75rem 1.3rem !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
   white-space: nowrap !important;
   cursor: pointer !important;
-  transition: all 0.15s ease !important;
+  transition: all 0.18s ease !important;
   letter-spacing: 0.01em !important;
-  box-shadow: none !important;
-  min-height: 54px !important;
-  width: 100% !important;
+  box-shadow: 0 4px 16px rgba(15,23,42,0.16) !important;
+  min-height: 50px !important;
+  min-width: 140px !important;
+  width: fit-content !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto !important;
 }
 [data-testid="stHorizontalBlock"] [data-testid="stButton"] button:hover {
-  background: rgba(59,130,246,0.08) !important;
-  border-color: rgba(59,130,246,0.3) !important;
-  color: #0f172a !important;
+  background: rgba(37,99,235,0.55) !important;
+  border-color: rgba(255,255,255,0.45) !important;
+  color: #fff !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 4px 14px rgba(59,130,246,0.12) !important;
+  box-shadow: 0 6px 20px rgba(30,64,175,0.35) !important;
 }
-/* Secilmis seher - Streamlit primary button */
+/* Secilmis seher - Streamlit primary button (active state) */
 [data-testid="stHorizontalBlock"] [data-testid="stButton"] button[kind="primary"],
 [data-testid="stHorizontalBlock"] [data-testid="stButton"] button[data-testid="baseButton-primary"],
 [data-testid="stHorizontalBlock"] [data-testid="stBaseButton-primary"] {
@@ -732,7 +755,7 @@ cities_cols = [col1, col2, col3, col4]
 for idx, _c in enumerate(CITY_NAMES):
     with cities_cols[idx]:
         _is_active = (_c == st.session_state.city)
-        if st.button(_c, key=f"city_btn_{_c}", use_container_width=True,
+        if st.button(_c, key=f"city_btn_{_c}", use_container_width=False,
                      type="primary" if _is_active else "secondary"):
             st.session_state.city = _c
             st.session_state.sel_day = 1
